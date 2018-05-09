@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,16 +20,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="MxM-Oe-6Yp" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
-                                <rect key="frame" x="16" y="40" width="288" height="508"/>
+                                <rect key="frame" x="16" y="63.5" width="288" height="461"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MxM-Oe-6Yp" secondAttribute="height" multiplier="5:8" id="njq-vD-8rW"/>
+                                    <constraint firstAttribute="width" priority="750" constant="1000" id="uks-Rw-wAF"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="7AT-Sa-9dI" firstAttribute="bottom" secondItem="MxM-Oe-6Yp" secondAttribute="bottom" constant="20" id="Fk3-WI-Kgn"/>
-                            <constraint firstItem="7AT-Sa-9dI" firstAttribute="trailing" secondItem="MxM-Oe-6Yp" secondAttribute="trailing" constant="16" id="O41-li-GYO"/>
-                            <constraint firstItem="MxM-Oe-6Yp" firstAttribute="leading" secondItem="7AT-Sa-9dI" secondAttribute="leading" constant="16" id="QBJ-IP-Jbs"/>
-                            <constraint firstItem="MxM-Oe-6Yp" firstAttribute="top" secondItem="7AT-Sa-9dI" secondAttribute="top" constant="20" id="RvT-4G-fxU"/>
+                            <constraint firstItem="7AT-Sa-9dI" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="MxM-Oe-6Yp" secondAttribute="bottom" constant="20" id="Fk3-WI-Kgn"/>
+                            <constraint firstItem="MxM-Oe-6Yp" firstAttribute="centerX" secondItem="7AT-Sa-9dI" secondAttribute="centerX" id="Kv4-8R-XTe"/>
+                            <constraint firstItem="7AT-Sa-9dI" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MxM-Oe-6Yp" secondAttribute="trailing" constant="16" id="O41-li-GYO"/>
+                            <constraint firstItem="MxM-Oe-6Yp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7AT-Sa-9dI" secondAttribute="leading" constant="16" id="QBJ-IP-Jbs"/>
+                            <constraint firstItem="MxM-Oe-6Yp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7AT-Sa-9dI" secondAttribute="top" constant="20" id="RvT-4G-fxU"/>
+                            <constraint firstItem="MxM-Oe-6Yp" firstAttribute="centerY" secondItem="7AT-Sa-9dI" secondAttribute="centerY" id="nz3-ew-LZj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7AT-Sa-9dI"/>
                     </view>
