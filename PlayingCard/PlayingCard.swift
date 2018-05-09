@@ -26,8 +26,8 @@ struct PlayingCard: CustomStringConvertible {
    
    enum Rank: CustomStringConvertible {
       case ace
-      case face(String)
       case numeric(Int)
+      case face(String)
       
       var order: Int {
          switch self {
