@@ -8,11 +8,11 @@
 
 import UIKit
 
-class PlayingCardView: UIView {
+@IBDesignable class PlayingCardView: UIView {
    
-   var rank: Int = 5 { didSet { setNeedsDisplay(); setNeedsLayout() } }
-   var suit: String = "♥️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
-   var isFaceUp: Bool = true { didSet { setNeedsDisplay(); setNeedsLayout() } }
+   @IBInspectable var rank: Int = 13 { didSet { setNeedsDisplay(); setNeedsLayout() } }
+   @IBInspectable var suit: String = "♠️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
+   @IBInspectable var isFaceUp: Bool = true { didSet { setNeedsDisplay(); setNeedsLayout() } }
    
    private func centeredAttributedString(_ string: String, fontSize: CGFloat) -> NSAttributedString {
       var font = UIFont.preferredFont(forTextStyle: .body).withSize(fontSize)
@@ -61,11 +61,25 @@ class PlayingCardView: UIView {
          .offsetBy(dx: -lowerRightCornerLabel.frame.size.width, dy: -lowerRightCornerLabel.frame.size.height)
    }
    
+//   drawPips()
+   
    override func draw(_ rect: CGRect) {
       let roundedRect = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
       roundedRect.addClip()
       UIColor.white.setFill()
       roundedRect.fill()
+      
+      if isFaceUp {
+         if let faceCardImage = UIImage(named: rankString, in: Bundle(for: self.classForCoder), compatibleWith: traitCollection) {
+            faceCardImage.draw(in: bounds.zoom(by: SizeRatio.faceCardImageSizeToBoundsSize))
+         } else {
+//            drawPips()
+         }
+      } else {
+         if let cardBackImage = UIImage(named: "back", in: Bundle(for: self.classForCoder), compatibleWith: traitCollection) {
+            cardBackImage.draw(in: bounds)
+         }
+      }
       
 //      if let context = UIGraphicsGetCurrentContext() {
 //         context.addArc(center: CGPoint(x: bounds.midX, y: bounds.midY), radius: 100.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
@@ -92,7 +106,7 @@ extension PlayingCardView {
       static let cornerFontSizeToBoundsHeight: CGFloat = 0.085
       static let cornerRadiusToBoundsHeight: CGFloat = 0.03
       static let cornerOffsetToCornerRadius: CGFloat = 0.5
-      static let faceCardImageSizeToBoundsSize: CGFloat = 0.75
+      static let faceCardImageSizeToBoundsSize: CGFloat = 1
    }
    private var cornerFontSize: CGFloat {
       return bounds.size.height * SizeRatio.cornerFontSizeToBoundsHeight
