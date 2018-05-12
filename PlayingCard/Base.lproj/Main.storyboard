@@ -22,10 +22,14 @@
                             <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="MxM-Oe-6Yp" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
                                 <rect key="frame" x="16" y="63" width="288" height="462"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MxM-Oe-6Yp" secondAttribute="height" multiplier="5:8" id="njq-vD-8rW"/>
                                     <constraint firstAttribute="width" priority="750" constant="1000" id="uks-Rw-wAF"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="hdN-cw-Xaq" appends="YES" id="tDu-Lt-HwY"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -39,8 +43,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7AT-Sa-9dI"/>
                     </view>
+                    <connections>
+                        <outlet property="playingCardView" destination="MxM-Oe-6Yp" id="weP-Fo-UXj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Phe-Wi-cW1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="hdN-cw-Xaq">
+                    <connections>
+                        <action selector="flipCard:" destination="LV2-ZV-tEJ" id="zZJ-rg-vWI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="752" y="30"/>
         </scene>
