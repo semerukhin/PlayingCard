@@ -46,14 +46,26 @@ class ViewController: UIViewController {
          cards += [card, card]
       }
       for cardView in cardViews {
-         cardView.isFaceUp = true
+         cardView.isFaceUp = false
          let card = cards.remove(at: cards.count.arc4random)
          cardView.rank = card.rank.order
          cardView.suit = card.suit.rawValue
+         cardView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(flipCard(_:))))
       }
 //      for _ in 1...52 {
 //         if let card = deck.draw() { print("\(card)") }
 //      }
+   }
+   
+   @objc func flipCard(_ recognizer: UITapGestureRecognizer) {
+      switch recognizer.state {
+      case .ended:
+         if let chosenCardView = recognizer.view as? PlayingCardView {
+            chosenCardView.isFaceUp = !chosenCardView.isFaceUp
+         }
+      default:
+         break
+      }
    }
    
 }
