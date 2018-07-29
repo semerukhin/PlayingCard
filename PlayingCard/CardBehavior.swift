@@ -3,7 +3,6 @@
 //  PlayingCard
 //
 //  Created by Ilya Semerukhin on 12.06.2018.
-//  Copyright © 2018 Ilya Semerukhin. All rights reserved.
 //
 
 import UIKit
