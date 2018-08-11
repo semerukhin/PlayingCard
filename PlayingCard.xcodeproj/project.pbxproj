@@ -69,8 +69,8 @@
 				D04F2390209F21D5009D24BA /* PlayingCardDeck.swift */,
 				D0F68F2420D0326F00C371B3 /* CardBehavior.swift */,
 				D04F2382209F1ABB009D24BA /* Assets.xcassets */,
-				D04F238D209F1BDC009D24BA /* SupportingFiles */,
 				D04F2387209F1ABB009D24BA /* Info.plist */,
+				D04F238D209F1BDC009D24BA /* SupportingFiles */,
 			);
 			path = PlayingCard;
 			sourceTree = "<group>";
